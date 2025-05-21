@@ -1,0 +1,14 @@
+{
+  "name": "darlisalvesamorim/Liberation",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "darlis",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  }
+}

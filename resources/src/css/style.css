@@ -1,0 +1,729 @@
+/* --- 0. Reset Básico e Box-sizing --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Fonte base, pode ser alterada para a do design */
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+}
+
+/* --- 1. Container para centralizar o conteúdo --- */
+.container {
+    max-width: 1200px; /* Largura máxima do conteúdo */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 0 20px; /* Espaçamento lateral interno para evitar que o conteúdo cole nas bordas */
+}
+
+/* --- 2. Estilos Comuns para Títulos e Botões --- */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+h1 { font-size: 3.5em; } /* Usado na seção Hero */
+h2 { font-size: 2.8em; }
+h3 { font-size: 2.2em; }
+h4 { font-size: 1.8em; }
+h5 { font-size: 1.5em; }
+h6 { font-size: 1.2em; }
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none; /* Garante que não haja borda padrão */
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #D61C4E; /* Vermelho principal do design */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #a0103a;
+}
+
+.btn-secondary {
+    background-color: white;
+    color: #D61C4E;
+    border: 2px solid #D61C4E;
+}
+
+.btn-secondary:hover {
+    background-color: #f0f0f0;
+}
+
+/* --- 3. CSS Grid Layout Principal (Desktop First) --- */
+body {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "hero"
+        "introduction"
+        "features"
+        "video-promo"
+        "how-it-works"
+        "testimonials"
+        "product-detail"
+        "final-details"
+        "footer";
+    grid-template-rows: auto; /* Altura automática para cada área, seguindo o fluxo do conteúdo */
+    min-height: 100vh; /* Garante que o body ocupe toda a altura da viewport */
+    background-color: #f8f8f8; /* Fundo padrão para seções brancas/cinzas */
+}
+
+/* --- 4. Estilos para as Áreas Principais (Grid-Area) --- */
+.main-header {
+    grid-area: header;
+    background-color: white; /* Cor do cabeçalho */
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative; /* Para o menu hambúrguer */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+.hero-section {
+    grid-area: hero;
+    background-color: #D61C4E; /* Fundo vermelho */
+    position: relative; /* Para as formas angulares */
+    overflow: hidden; /* Para garantir que as formas angulares não vazem */
+    padding: 80px 0 100px; /* Padding vertical, ajuste se necessário */
+    color: white;
+}
+
+.introduction-section {
+    grid-area: introduction;
+    background-color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.features-section {
+    grid-area: features;
+    background-color: #f8f8f8;
+    padding: 80px 0;
+    text-align: center; /* Para o texto e imagem centralizados */
+}
+
+.video-promo-section {
+    grid-area: video-promo;
+    background-color: #1a1a1a; /* Fundo escuro */
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+}
+
+.how-it-works-section {
+    grid-area: how-it-works;
+    background-color: white; /* Fundo branco */
+    position: relative; /* Para as formas angulares */
+    overflow: hidden;
+    padding: 100px 0 80px;
+    color: #333;
+}
+
+.testimonials-section {
+    grid-area: testimonials;
+    background-color: #D61C4E; /* Fundo vermelho */
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+}
+
+.product-detail-section {
+    grid-area: product-detail;
+    background-color: #f8f8f8;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.final-details-section {
+    grid-area: final-details;
+    background-color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.main-footer {
+    grid-area: footer;
+    background-color: #1a1a1a; /* Fundo preto do rodapé */
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* --- 5. Estilos Específicos das Seções --- */
+
+/* --- 5.1. Header --- */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333; /* Cor do logo no header */
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav ul li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: #D61C4E;
+}
+
+.header-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.header-icons .icon-link img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+/* Hambúrguer - Escondido por padrão no Desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #333;
+    cursor: pointer;
+}
+
+/* --- 5.2. Hero Section --- */
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas: atleta e produto */
+    gap: 40px;
+    align-items: center;
+    position: relative; /* Para posicionamento de elementos dentro */
+    z-index: 2; /* Para ficar acima das formas angulares */
+}
+
+.hero-athlete {
+    text-align: center;
+}
+
+.hero-athlete img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.hero-product-area {
+    display: flex;
+    flex-direction: column; /* Conteúdo empilhado: imagem do produto e depois info */
+    align-items: flex-start; /* Alinha o texto à esquerda */
+}
+
+.hero-product-image img {
+    max-width: 80%; /* Ajuste o tamanho da imagem do produto */
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.hero-product-info h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.hero-product-info p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+/* Formas Angulares na Hero Section (usando pseudo-elementos ou divs) */
+.hero-bg-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #D61C4E; /* Cor de fundo principal */
+    z-index: 1; /* Abaixo do conteúdo */
+    /* Para a forma angular, usaremos clip-path ou transform rotate */
+    /* Exemplo simples de um triângulo na parte inferior para a transição */
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); /* Ajuste para o ângulo da imagem */
+    /* Ou, para o efeito da imagem, um pseudo-elemento com transform: skewY() */
+}
+
+.hero-bg-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%; /* Altura da parte branca */
+    background-color: white;
+    z-index: 1;
+    /* Inverte o ângulo para a parte branca */
+    clip-path: polygon(0 15%, 100% 0%, 100% 100%, 0% 100%); /* Ajuste para o ângulo da imagem */
+    /* Opcional: Se a angularidade for mais complexa, pode ser SVG ou imagem de fundo */
+}
+
+/* --- 5.3. Introduction Section --- */
+.introduction-section h3 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.introduction-section p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1em;
+}
+
+/* --- 5.4. Features Section --- */
+.features-content {
+    display: flex;
+    flex-direction: column; /* Empilha no mobile, mas alinha centro no desktop */
+    align-items: center;
+    gap: 30px; /* Espaçamento entre texto e imagem */
+}
+
+.features-text h4 {
+    font-size: 2em;
+    color: #333;
+}
+
+.branding-visual img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- 5.5. Video Promo Section --- */
+.video-promo-section h5 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.video-player {
+    position: relative;
+    max-width: 900px; /* Largura máxima do player */
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.video-player img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23D61C4E"><path d="M8 5v14l11-7z"/></svg>'); /* Ícone de play vermelho */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.play-button:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* --- 5.6. How It Works Section --- */
+.how-it-works-container h4 {
+    font-size: 2em;
+    margin-bottom: 50px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajusta para 2 ou 4 colunas */
+    gap: 30px;
+    text-align: left;
+}
+
+.step-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+}
+
+.step-card span {
+    display: block;
+    font-size: 3em;
+    font-weight: bold;
+    color: #D61C4E;
+    margin-bottom: 15px;
+}
+
+.step-card h5 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Formas Angulares na How It Works Section */
+.how-it-works-bg-top,
+.how-it-works-bg-bottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 30%; /* Altura das partes angulares */
+    z-index: 1;
+}
+
+.how-it-works-bg-top {
+    top: 0;
+    background-color: #f8f8f8; /* Cor da seção acima, para criar a transição */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 85%); /* Inverte o ângulo da hero */
+}
+
+.how-it-works-bg-bottom {
+    bottom: 0;
+    background-color: #D61C4E; /* Cor da seção abaixo, para criar a transição */
+    clip-path: polygon(0 0, 100% 15%, 100% 100%, 0% 100%); /* Ângulo para a transição com a seção de depoimentos */
+}
+
+
+/* --- 5.7. Testimonials Section --- */
+.testimonials-section h4 {
+    font-size: 2em;
+    margin-bottom: 50px;
+    color: white;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 colunas no desktop */
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #333;
+}
+
+.testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 15px;
+    border: 3px solid #D61C4E;
+}
+
+.testimonial-card h6 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #D61C4E;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    font-size: 1em;
+}
+
+/* --- 5.8. Product Detail Section --- */
+.product-detail-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Imagem menor, informações maiores */
+    gap: 50px;
+    align-items: center;
+    text-align: left;
+}
+
+.product-image-area img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.product-info-area h4 {
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.product-info-area .product-description {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.product-info-area .product-price {
+    font-size: 2em;
+    font-weight: bold;
+    color: #D61C4E;
+    margin-bottom: 30px;
+}
+
+/* --- 5.9. Final Details Section --- */
+.final-details-section h4 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* --- 5.10. Footer --- */
+.main-footer .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-footer .footer-logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 20px; /* Espaço no mobile */
+}
+
+.footer-links-social {
+    display: flex;
+    flex-direction: column; /* Empilha links e redes sociais */
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.footer-nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-nav ul li a:hover {
+    color: #ffd700;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* Centraliza ícones no mobile */
+}
+
+.social-media a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-media a img:hover {
+    transform: scale(1.1);
+}
+
+.copyright {
+    width: 100%; /* Ocupa largura total para centralizar */
+    text-align: center;
+    font-size: 0.9em;
+    color: #bbb;
+    margin-top: 20px; /* Espaço para o copyright */
+}
+
+/* --- 6. Media Queries para Responsividade --- */
+
+/* Tablet e Telas Médias (max-width: 992px) */
+@media (max-width: 992px) {
+    h1 { font-size: 2.8em; }
+    h2 { font-size: 2.2em; }
+    h3 { font-size: 1.8em; }
+    h4 { font-size: 1.6em; }
+    h5 { font-size: 1.3em; }
+    h6 { font-size: 1.1em; }
+
+    .container {
+        padding: 0 15px; /* Ajusta o padding do container */
+    }
+
+    /* Hero Section: Empilha conteúdo e imagem */
+    .hero-container {
+        grid-template-columns: 1fr; /* Uma única coluna */
+        text-align: center;
+        gap: 30px;
+    }
+    .hero-athlete {
+        order: 1; /* Atleta em cima */
+        margin-bottom: 30px;
+    }
+    .hero-product-area {
+        order: 2; /* Produto e info embaixo */
+        align-items: center; /* Centraliza o texto */
+    }
+    .hero-product-image img {
+        margin-bottom: 10px; /* Ajusta espaço */
+    }
+
+    /* Product Detail Section: Empilha conteúdo e imagem */
+    .product-detail-container {
+        grid-template-columns: 1fr; /* Uma única coluna */
+        text-align: center;
+        gap: 30px;
+    }
+    .product-image-area img {
+        margin-bottom: 20px;
+    }
+
+
+    /* Benefits e How-It-Works: Ajusta para 2 colunas se possível */
+    .steps-grid,
+    .testimonials-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Duas colunas ou uma */
+    }
+
+    /* Footer: Colunas empilhadas */
+    .main-footer .footer-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .footer-links-social {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .footer-nav ul {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+/* Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Geral: Reduz padding de seções */
+    section {
+        padding: 50px 0;
+    }
+
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.6em; }
+    h4 { font-size: 1.4em; }
+    h5 { font-size: 1.2em; }
+    h6 { font-size: 1em; }
+
+    /* Header: Menu Hambúrguer */
+    .main-header .main-nav {
+        display: none; /* Esconde o menu padrão */
+        position: absolute;
+        top: 100%; /* Abaixo do header */
+        left: 0;
+        width: 100%;
+        background-color: white; /* Ou #D61C4E */
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    .main-header .main-nav.active {
+        display: block; /* Mostra o menu quando 'active' */
+    }
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+    .main-nav ul li {
+        margin: 10px 0;
+    }
+    .main-nav ul li a {
+        font-size: 1.2em;
+        color: #333; /* Cor dos links no menu hambúrguer */
+    }
+
+    .header-icons {
+        display: none; /* Esconde os ícones para dar espaço ao hambúrguer */
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão de hambúrguer */
+    }
+
+    /* Seções de Cards: Força 1 coluna */
+    .steps-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr; /* Uma única coluna */
+    }
+
+    .step-card,
+    .testimonial-card {
+        padding: 20px;
+    }
+
+    /* Product Detail Section: Mais ajustes de espaçamento */
+    .product-info-area h4 {
+        font-size: 1.8em;
+    }
+    .product-info-area .product-price {
+        font-size: 1.8em;
+    }
+}
+
+/* Pequenos ajustes para Telas muito pequenas (max-width: 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .hero-product-image img {
+        max-width: 90%;
+    }
+
+    .play-button {
+        width: 60px;
+        height: 60px;
+    }
+}
